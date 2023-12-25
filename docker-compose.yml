@@ -1,0 +1,14 @@
+#
+# https://docs.docker.com/compose/compose-file/
+#
+
+version: '3.5'
+
+services:
+
+  aggregation_app:
+    image: aggregation-app-0.1.jar:latest
+    container_name: aggregation-app
+    ports:
+        - "8050:8050"
+

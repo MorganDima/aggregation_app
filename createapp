@@ -1,0 +1,45 @@
+docker build -t aggregation-app-0.1.jar .
+docker-compose up
+
+docker build -t 670995073432.dkr.ecr.eu-west-1.amazonaws.com/aggregation-app:0.0.1 .
+docker push 670995073432.dkr.ecr.eu-west-1.amazonaws.com/aggregation-app:0.0.1
+
+aws ecr get-login-password --region=eu-west-1
+
+
+
+
+aws configure id = 670995073432
+aws_access_key_id = AKIAZYOTMJGMOVKO3MGF
+aws_secret_access_key = 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
+
+aws ecr get-login-password --no-include-email --region=eu-west-1
+aws ecr list-images --region=eu-west-1
+
+batch-check-layer-availability           | batch-delete-image
+batch-get-image                          | batch-get-repository-scanning-configuration
+complete-layer-upload                    | create-pull-through-cache-rule
+create-repository                        | delete-lifecycle-policy
+delete-pull-through-cache-rule           | delete-registry-policy
+delete-repository                        | delete-repository-policy
+describe-image-replication-status        | describe-image-scan-findings
+describe-images                          | describe-pull-through-cache-rules
+describe-registry                        | describe-repositories
+get-authorization-token                  | get-download-url-for-layer
+get-lifecycle-policy                     | get-lifecycle-policy-preview
+get-registry-policy                      | get-registry-scanning-configuration
+get-repository-policy                    | initiate-layer-upload
+list-images                              | list-tags-for-resource
+put-image                                | put-image-scanning-configuration
+put-image-tag-mutability                 | put-lifecycle-policy
+put-registry-policy                      | put-registry-scanning-configuration
+put-replication-configuration            | set-repository-policy
+start-image-scan                         | start-lifecycle-policy-preview
+tag-resource                             | untag-resource
+update-pull-through-cache-rule           | upload-layer-part
+validate-pull-through-cache-rule         | get-login-password
+wait                                     | help
+
+
+
+docker login -u AWS -p eyJwYXlsb2FkIjoiTmFOVFlLV2gwbitoWDRCRC9zUVZ4bUxxVXZYK2x3OWZ4V2Q5dkJ1ZTRrdVNySWZhMDV5YWlBRXlpcGloRG9SelBXZzlCeTFpVEl5Nm56dUVFald6MFM4UGl0Rlk0cFFEWUpIN21Zc3BGcHpmbzRsNnUzeERQeFBlK3dCNE5vWkhseXNFR1l2SGVoNjF0U2lBajVRZFYzUEdyRHZtVTZXQ2U2ZmlRZGt0VHgwYnJmZHVhVkRBaFIydGJQVFFES1hsRmJTWnhCUk40QVpXdUpqVUZVK0dkS0luR2tkTFIraG9LUm1ydlNrdGV5S1Q2Mjh3T3RMUkdVYnRLZDRyQmxTZk5IWDg1eDhybE1HUFpMS2t3VVhDYzRTTlJQd2JKak9NQkJ4YitzTkhqTmxBMDVxSGNDSnpSQWFkanA3N0UxR0dFcndQWHdGcTdvQkxSblc0bFUrY1R2YjlCL0xxMHkrc3VzUlFaeEpuOFRpdEZnMTVpcnRWZWRPaHVTNlIzSUNHaFdGVnUwR0ViUVpEelNESnpNQzN3Tkh5OGNNR0F0ZlJLQkdBTUt5VjkxUzVYWjFqYlZLQ3V4eURFd1VSVzhtUm1XZUVwUCtQek1uaE9Cb0F2WFI2UUhtR1RGeXdadGZ5MndMMmpXVkZnOWd3WnFKK3RMc3E5MU1BbzFoOFdiMWI4YVovOU5aMis4N3NubkVKcTl3R2dpVHJpblBWSTU4cE1Wc2UzVGtWTk5FajFjcklBOThsdDhOQzAwVFBZVDU2ZzlIUmpJSjlIYnJJS0NmNGVVNXNrT1FzRDJMdkRvUU85QllnemVSNVpoK0ZsRE9wbHJNSUEzbGJtZGpuM2U3OERlZURCNFM3aHlkV2xaS3hwNHlOTlZ4WkNXeDdsZWJZbFZreEg4STdselNyWmgrODl6bFM0VndOam1BZzAxNWxLSUdqNkNmcjE4K3k4ZEN1UXdSMGQxc3FSdnFtNTlGNDNpajBPWmt6YUROdTRzQjRaUjJRLzVqcFJaNFVyamVqYTdqOW9sZ21XUzRrYnhlOHpmNjNBSVlkdzhLTjc2OThuNzRYbmppTjEzYnVPRXNSYlZQSitLRGYzVy9XQ0RTRGhLLzVCMFN5UWZjTWdyTnZjblhveHU4bE5ZRGg2ZXJzNzFrRENtWjdxazlTcDE3SFd1WTFiRW1ieGV2SU9xenhBWERLVCsvblNNUjBRUzdYajc5bTV6d1JiUlNYV0RNNVM2eHpKQU1FaXZsSldZSlVaay9MTTBmbkd4dk5RZWRidUFZVm1paWpMTVUrUGZZZXJ5czJiVVA4UU1ESHhaSzNvTk5rMnU3UFVFOXdJZVhLaHljM1hWTlhEK3ZidVVmS0J4SzVLdDZHNEVRUVpmTFlDY01Lc3lyQUdYcE9aRS9aTGc9PSIsImRhdGFrZXkiOiJBUUVCQUhoK2RTK0JsTnUwTnhuWHdvd2JJTHMxMTV5amQrTE5BWmhCTFpzdW5PeGszQUFBQUg0d2ZBWUpLb1pJaHZjTkFRY0dvRzh3YlFJQkFEQm9CZ2txaGtpRzl3MEJCd0V3SGdZSllJWklBV1VEQkFFdU1CRUVESENGWTBnRVd1M1ZleXRHdXdJQkVJQTdkU0pGeTAveVVnK3VPY0tkYVJPOVFQVEUvYW5aWEJYZloyT3lzLzNmRjVFSXM2YXBFUW44QmtyU0lPMEdpelJwNC81aW1KUFF1akVSSEJZPSIsInZlcnNpb24iOiIyIiwidHlwZSI6IkRBVEFfS0VZIiwiZXhwaXJhdGlvbiI6MTcwMzQ4MDU5NH0= https://670995073432.dkr.ecr.eu-west-1.amazonaws.com
