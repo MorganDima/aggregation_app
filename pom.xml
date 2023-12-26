@@ -9,10 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>AggregationApp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>AggregationApp</name>
-    <description>AggregationApp</description>
+    <artifactId>aggregation-app</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+    <name>aggregation-app</name>
+    <description>aggregation-app</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -37,18 +39,53 @@
     <build>
         <plugins>
             <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.aggregationapp.AggregationAppApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <profiles>
+                        <profile>prod</profile>
+                    </profiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+
+    <profiles>
+        <profile>
+            <id>stage</id>
+            <properties>
+                <spring.profile.active>stage</spring.profile.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>dev</id>
+            <properties>
+                <spring.profile.active>dev</spring.profile.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.profile.active>prod</spring.profile.active>
+            </properties>
+        </profile>
+    </profiles>
+
 
 </project>
