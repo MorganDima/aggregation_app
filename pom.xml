@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>aggregation-app</artifactId>
-    <version>0.0.1</version>
+    <version>0.1</version>
     <packaging>jar</packaging>
     <name>aggregation-app</name>
     <description>aggregation-app</description>
