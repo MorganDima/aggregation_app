@@ -11,7 +11,7 @@ public class UserRepo {
 
     public static String saveUser(Integer id, String userName) {
         userHashMap.putIfAbsent(id, userName);
-        return userName + " had been putted";
+        return userName;
     }
 
     public static String getUser(Integer id) {
