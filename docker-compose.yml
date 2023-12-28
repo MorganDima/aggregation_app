@@ -11,4 +11,42 @@ services:
     container_name: aggregation-app
     ports:
         - "8050:8050"
+    networks:
+      - app_default
+
+  app-redis:
+    image: redis:latest
+    container_name: app-redis-srv
+    ports:
+      - "6379:6379"
+    volumes:
+      - app_redis_data:/data
+    networks:
+      - app_default
+
+  app-redis-commander:
+    container_name: app-redis-commander-srv
+    hostname: app-redis-commander-srv
+    image: rediscommander/redis-commander:latest
+    #    depends_on:
+    #      - xp-redis
+    environment:
+      - REDIS_HOSTS=local-redis:app-redis-srv:6379
+    ports:
+      - "8081:8081"
+    networks:
+      - app_default
+
+
+
+
+
+networks:
+  app_default:
+    name: app_default
+
+
+volumes:
+  app_redis_data:
+    name: app_redis_data
 
